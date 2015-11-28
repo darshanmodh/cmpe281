@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="cmpe281.billing.hibernate.User" table="user"
+		catalog="billing">
+
+		<id name="userid" type="java.lang.Integer">
+			<column name="userid" />
+			<generator class="identity" />
+		</id>
+
+		<property name="username" type="string">
+			<column name="username" not-null="true" />
+		</property>
+		
+		<property name="password" type="string">
+			<column name="password" not-null="true" />
+		</property>
+		
+		<property name="name" type="string">
+			<column name="name" not-null="true" />
+		</property>
+		
+		<property name="email" type="string">
+			<column name="email" not-null="true" />
+		</property>
+		
+		<property name="mobile" type="string">
+			<column name="mobile" not-null="true" />
+		</property>
+		
+		<many-to-one name="roleid" class="cmpe281.billing.hibernate.Role" fetch="select">
+            <column name="roleid" />
+        </many-to-one>
+		
+		<property name="alertvalue" type="int">
+			<column name="alertvalue" not-null="true" />
+		</property>
+
+	</class>
+
+</hibernate-mapping>
